@@ -66,7 +66,7 @@ class{ 'tftp' :
 }
 
 tftp::file{ 'ipxe.lkrn':
-  source  => 'file:///usr/lib/ipxe/ipxe.lkrn',
+  source  => 'file:///boot/ipxe.lkrn',
   require => Package['ipxe'],
 }
 
