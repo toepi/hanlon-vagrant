@@ -28,3 +28,6 @@
 [submodule "provision/modules/tftp"]
 	path = provision/modules/tftp
 	url = https://github.com/puppetlabs/puppetlabs-tftp.git
+[submodule "provision/modules/wget"]
+	path = provision/modules/wget
+	url = https://github.com/maestrodev/puppet-wget.git

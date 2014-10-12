@@ -112,6 +112,18 @@ dhcp::pool { 'localdomain':
   gateway => '192.168.66.254',
 }
 
+include wget
+
+wget::fetch{ 'download microkernel':
+  source      => 'http://github.com/csc/Hanlon-Microkernel/releases/download/v1.0/hnl_mk_prod-image.1.0.iso',
+  destination => '/vagrant/hnl_mk_prod-image.1.0.iso',
+  verbose     => true,
+}
+
+exec{ 'add mk':
+  command    => '/opt/hanlon/cli/hanlon image add -t mk -p /vagrant/hnl_mk_prod-image.1.0.iso',
+}
+
 anchor { 'default::hanlon::begin':}
 anchor { 'default::hanlon::end': }
 
@@ -125,5 +137,8 @@ Class['::hanlon'] ->
 File['/opt/hanlon/web/log'] ->
 Nginx::Resource::Vhost['hanlon'] ->
 Tftp::File<||> ->
+Class['wget'] ->
+Wget::Fetch['download microkernel'] ->
+Exec['add mk'] ->
 Anchor['default::hanlon::end']
 
