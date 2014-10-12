@@ -1,0 +1,30 @@
+[submodule "provision/modules/nginx"]
+	path = provision/modules/nginx
+	url = https://github.com/jfryman/puppet-nginx
+[submodule "provision/modules/apt"]
+	path = provision/modules/apt
+	url = https://github.com/puppetlabs/puppetlabs-apt.git
+[submodule "provision/modules/postgresql"]
+	path = provision/modules/postgresql
+	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
+[submodule "provision/modules/concat"]
+	path = provision/modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat.git
+[submodule "provision/modules/stdlib"]
+	path = provision/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "provision/modules/vcsrepo"]
+	path = provision/modules/vcsrepo
+	url = https://github.com/puppetlabs/puppetlabs-vcsrepo.git
+[submodule "provision/modules/git"]
+	path = provision/modules/git
+	url = https://github.com/puppetlabs/puppetlabs-git.git
+[submodule "provision/modules/hanlon"]
+	path = provision/modules/hanlon
+	url = https://github.com/toepi/puppet-hanlon.git
+[submodule "provision/modules/dhcp"]
+	path = provision/modules/dhcp
+	url = https://github.com/puppetlabs/puppetlabs-dhcp.git
+[submodule "provision/modules/tftp"]
+	path = provision/modules/tftp
+	url = https://github.com/puppetlabs/puppetlabs-tftp.git
