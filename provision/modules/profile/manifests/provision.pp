@@ -23,12 +23,27 @@ class profile::provision(
     require => File['/var/log/hanlon'],
   }
 
+  include wget
+
+  wget::fetch { 'download microkernel':
+    source      => 'http://github.com/csc/Hanlon-Microkernel/releases/download/v1.0/hnl_mk_prod-image.1.0.iso',
+    destination => '/vagrant/hnl_mk_prod-image.1.0.iso',
+    verbose     => false,
+  }
+
+  exec { 'add mk':
+    command => '/opt/hanlon/cli/hanlon image add -t mk -p /vagrant/hnl_mk_prod-image.1.0.iso',
+  }
+
   anchor { 'profile::provision::begin':}
   anchor { 'profile::provision::end':}
 
   Anchor['profile::provision::begin'] ->
   Class['hanlon'] ->
   File['/opt/hanlon/web/log'] ->
+  Class['wget'] ->
+  Wget::Fetch['download microkernel'] ->
+  Exec['add mk'] ->
   Anchor['profile::provision::end']
 
 }

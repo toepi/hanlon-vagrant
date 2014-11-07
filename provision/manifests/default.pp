@@ -17,17 +17,15 @@ class { 'profile::provision':
 class { 'profile::rackapp': }
 class { 'profile::bootserver': }
 class { 'profile::dhcpserver': }
-class { 'profile::images': }
 
 anchor { 'default::hanlon::begin':}
 anchor { 'default::hanlon::end': }
 
 Anchor['default::hanlon::begin'] ->
 Class['profile::database'] ->
-Class['profile::provision'] ->
 Class['profile::rackapp'] ->
+Class['profile::provision'] ->
 Class['profile::bootserver'] ->
 Class['profile::dhcpserver'] ->
-Class['profile::images'] ->
 Anchor['default::hanlon::end']
 
